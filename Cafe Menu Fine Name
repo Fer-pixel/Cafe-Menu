@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .menu-item {
+            font-size: 20px;
+            cursor: pointer;
+            margin: 15px;
+        }
+        .popup-image {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 80%;
+            border: 3px solid black;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Interactive Menu</h1>
+
+    <div class="menu-item" onmousedown="showImage('coffee.jpg')" onmouseup="hideImage()" 
+         ontouchstart="showImage('coffee.jpg')" ontouchend="hideImage()">☕ Coffee</div>
+    
+    <div class="menu-item" onmousedown="showImage('croissant.jpg')" onmouseup="hideImage()" 
+         ontouchstart="showImage('croissant.jpg')" ontouchend="hideImage()">🥐 Croissant</div>
+
+    <img id="popup" class="popup-image" src="" alt="Product Image">
+
+    <script>
+        function showImage(imageSrc) {
+            const img = document.getElementById("popup");
+            img.src = imageSrc;
+            img.style.display = "block";
+        }
+
+        function hideImage() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
